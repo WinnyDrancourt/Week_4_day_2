@@ -1,6 +1,7 @@
 require 'bundler'
 Bundler.require
 
+
 require_relative 'lib/player'
 require_relative 'lib/game'
 
@@ -14,15 +15,16 @@ player2 = Player.new("José")
   print "#{player2.show_state}"
   puts "------------------------------"
 
-  while player1.is_alive? || player2.is_alive?
+  while player1.is_alive? || player2.is_alive? #Player 1 or 2 alive
     player1.attacks(player2)
     puts "------------------------------"
-      break if player2.is_dead?
+      break if player2.is_dead? # break if player 1 killed player 2
     player2.attacks(player1)
     puts "------------------------------"
-      break if player1.is_dead?
+      break if player1.is_dead? # break if player 2 killed player 1
   end
 end
+
 
 
 binding.pry
