@@ -23,7 +23,6 @@ def human_init
   return humanplayer
 end
 
-
 def human_choice(enemy1, enemy2)
   puts "Choice your actions (maybe the last)"
   puts
@@ -77,8 +76,10 @@ def perform
   welcome_screen
   gets
   humanplayer = human_init
-  gets
   fight(humanplayer, enemy1, enemy2, enemies)
+  puts " You'r still alive ! Enjoy"
+  gets
+  perform
 end
 
 perform
