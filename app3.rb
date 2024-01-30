@@ -1,7 +1,7 @@
 require 'bundler'
 Bundler.require
 
-require_relative 'lib/player2'
+require_relative 'lib/player3'
 require_relative 'lib/game'
 
 def welcome_screen
@@ -22,17 +22,26 @@ def game_init
   puts "Choose you'r difficulty now"
   puts "[1] Easy (enemies number between 5 and 15)"
   puts "[2] Normal (enemies number between 15 and 30)"
-  #puts "[3] Hard (enemies number between 30 and 60)"
+  puts "[3] Hard (enemies number between 30 and 60)"
   print "> "
   difficulty = gets.chomp
   if difficulty == "1"
     n_difficulty = rand(5..15)
   elsif difficulty == "2"
     n_difficulty = rand(15..30)
-  # elsif difficulty == "3"
-  #   n_difficulty = rand(30..60)
+  elsif difficulty == "3"
+    n_difficulty = rand(30..60)
   end
-  my_game = Game.new(player_name, n_difficulty)
+  return my_game = Game.new(player_name, n_difficulty)
+end
+
+def try_again
+  puts "Do you want, try again ?"
+  puts
+  puts "[1] Yes, lets have some fun again !"
+  puts
+  puts "[2] No, i'm so scarred, i need to go sleep !"
+  user_input = gets.chomp
 end
 
 def perform
@@ -50,7 +59,14 @@ def perform
     my_game.enemies_attack
     gets
   end
-
+  my_game.end
+  gets
+  case try_again
+    when "1"
+    perform
+    when "2"
+    exit!
+  end
 end
 perform
 

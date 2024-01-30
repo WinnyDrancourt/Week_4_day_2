@@ -67,10 +67,20 @@ class Game
   end
 
   def enemies_attack
-    number_of_attack = rand(0..6)
+    number_of_attack = rand(1..10)
+    puts "[#{number_of_attack}] enemies attack you ! Take care"
     enemy = @enemies.sample(number_of_attack)
     enemy.each do |enemys|
         enemys.attacks(humanplayer)
+    end
+  end
+
+  def end
+    puts "This games have end."
+    if humanplayer.is_alive?
+      puts "Congratulation ! You win"
+    else
+      puts "oh no, you loose ! Try again. And dont be stupid !"
     end
   end
 end
