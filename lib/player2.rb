@@ -17,6 +17,7 @@ class Player
   def gets_damage(dmg) #  how damage is make on life points
     @life_points -= dmg
     self.show_state
+    puts "_____________________"
   end
 
   def compute_damage #random damage

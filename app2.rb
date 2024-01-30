@@ -77,7 +77,6 @@ def perform
   gets
   humanplayer = human_init
   fight(humanplayer, enemy1, enemy2, enemies)
-  puts " You'r still alive ! Enjoy"
   gets
   perform
 end
