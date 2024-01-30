@@ -10,7 +10,7 @@ class Player
     if @life_points <= 0
       puts "#{@name} is Dead !"
       else
-        puts "#{@name} have #{@life_points} HP."
+      puts "#{@name} have #{@life_points} HP."
     end
   end
 
@@ -19,6 +19,15 @@ class Player
     self.show_state
     puts "_____________________"
   end
+
+  def show_states
+    if @life_points <= 0
+      return "#{@name} is Dead !"
+      else
+      return "#{@name} have #{@life_points} HP."
+    end
+  end
+
 
   def compute_damage #random damage
     return rand(1..6)
