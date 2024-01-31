@@ -57,12 +57,13 @@ class Player
 end
 
 class HumanPlayer < Player
-  attr_accessor :weapon_level
+  attr_accessor :weapon_level, :shield_bonus
 
 
   def initialize(name)
     super(name)
     @weapon_level = 1
+    @shield_bonus = 1
     @life_points = 100
   end
 
@@ -70,7 +71,7 @@ class HumanPlayer < Player
     if @life_points <= 0
       puts "#{@name} is Dead !"
       else
-        puts "#{@name} have #{@life_points} HP and have a lvl #{@weapon_level} weapon"
+        puts "#{@name} have #{@life_points} HP. You have a lvl #{@weapon_level} weapon and lvl #{@shield_bonus} armor bonus."
     end
   end
 
@@ -86,6 +87,17 @@ class HumanPlayer < Player
       puts "You're so happy, this weapons is so much better and you take it."
     else
       puts "You're so sick, because this weapon is so TRASH !"
+    end
+  end
+
+  def search_armor
+    shield_rand = rand(1..6)
+    puts "You fin a lvl #{shield_rand} weapon !"
+    if shield_rand > @shield_bonus
+      @shield_bonus = shield_rand #Replace value @weapon_level by weapon_rand
+      puts "You're so happy, this armor is so much better and you take it."
+    else
+      puts "You're so sick, because this armor is so TRASH !"
     end
   end
 
